@@ -1,11 +1,14 @@
 wp-plugin-list-pdf-media-files
 ==============================
 
-This is a WordPress Plugin it will lists all PDF files added to the media library in a page or post by placing a shortcode [listpdfs] where you want the list to appear.
-The PDF's will appear as a list of links using target="_blank" so that the PDF's open in a new window
+List all PDF Files in your media library on a page and post also generates a PDF XML sitemap.
 
-Add this plugin to your wordpress plugins folder
+Use [listpdfs] short code to link all PDF in your media library into a page or post.
+The PDF's will appear as a list of links using target="_blank" so that the PDF's open in a new window.
 
-Use the [listpdfs] shortcode on any page or post
+To generate a PDF XML Sitemap navigate to http://www.mywpinstall.com/pdf-sitemap.xml . You can place this URL into your web master tools control panel for indexing.
+
+Add this plugin to your wordpress plugins folder. i.e. /wp-content/plugins/wp-plugin-list-pdf-media-files/functions.php
+
 
 There are no configurations setting pages in the wp admin.
