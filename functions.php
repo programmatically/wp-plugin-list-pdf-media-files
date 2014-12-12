@@ -2,7 +2,7 @@
 /*
 Plugin Name: PDF List
 Plugin URI: https://github.com/programmatically/wp-plugin-list-pdf-media-files
-Description: List all PDF Files in your media library on a page and post in addition you can also generate a PDF XML sitemap. Use [pdflist] short code to link all PDF in your media library into a page or post or navigate to http://www.mywpinstall.com/pdf-sitemap.xml for the PDF XML sitemap.
+Description: List all PDF Files in your media library on a page and post also generates a PDF XML sitemap. Use [listpdfs] short code to link all PDF in your media library into a page or post or navigate to http://www.mywpinstall.com/pdf-sitemap.xml for the PDF XML sitemap.
 Version: Version No 1.00
 Author: wibblebuilder
 Author URI: http://themes.technology
@@ -56,16 +56,16 @@ class WB_Getpdflist
 	
 }
 
-//WB_pdflist-> adds shortcode to list files in a WP HTML page or post
-class WB_HTMLpdflist 
+//WB_listpdfs-> adds shortcode to list files in a WP HTML page or post
+class WB_HTMLlistpdfs 
 {
 
     public function __construct()
     {
-        add_shortcode('pdflist', array($this, 'shortcode_pdflist_func'));
+        add_shortcode('listpdfs', array($this, 'shortcode_listpdfs_func'));
     }
      
-	public function shortcode_pdflist_func()
+	public function shortcode_listpdfs_func()
 	{
 		
 		$pdflist = new WB_Getpdflist();
@@ -76,20 +76,20 @@ class WB_HTMLpdflist
 	
 	}
 }
-$WB_HTMLpdflist = new WB_HTMLpdflist();
+$WB_HTMLlistpdfs = new WB_HTMLlistpdfs();
 
 
 
-//WPXMLpdflist-> list applications as an XML page
-class WB_XMLpdflist
+//WPXMLlistpdf-> list applications as an XML page
+class WB_XMLlistpdf
 {
 
     public function __construct()
     {        
-	add_action( 'template_redirect', array($this, 'XMLPage_pdflist_func'));
+	add_action( 'template_redirect', array($this, 'XMLPage_listpdfs_func'));
     }
      
-	public function XMLPage_pdflist_func()
+	public function XMLPage_listpdfs_func()
 	{
 	if ( ! preg_match( '/pdf-sitemap\.xml$/', $_SERVER['REQUEST_URI'] ) ) {
 	    return;
@@ -125,7 +125,7 @@ class WB_XMLpdflist
 	}
 }
  
-$WB_XMLpdflist = new WB_XMLpdflist();
+$WB_XMLlistpdf = new WB_XMLlistpdf();
 
 
 
