@@ -1,6 +1,8 @@
 wp-plugin-list-pdf-media-files
 ==============================
 
+This plugin is design to run as a WordPress Plugin
+
 List all PDF Files in your media library on a page and post also generates a PDF XML sitemap.
 
 Use [listpdfs] short code to link all PDF in your media library into a page or post.
