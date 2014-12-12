@@ -1,16 +1,16 @@
 <?php
 /*
 Plugin Name: PDF List
-Plugin URI: http://PluginHomePage.com
-Description: Plugin description in a few words or more
-Version: Version number such as 2.3
-Author: Your Name (if you wrote it)
-Author URI: http://YourHomePage.com
-License: GPL (or whatever license terms you choose)
+Plugin URI: https://github.com/programmatically/wp-plugin-list-pdf-media-files
+Description: List all PDF Files in your media library on a page and post also generates a PDF XML sitemap. Use [listpdfs] short code to link all PDF in your media library into a page or post or navigate to http://www.mywpinstall.com/pdf-sitemap.xml for the PDF XML sitemap.
+Version: Version No 1.00
+Author: wibblebuilder
+Author URI: http://themes.technology
+License: GPL v3
 */
 
-// WPGetpdflist -> get list from WP post table in database
-class WPGetpdflist
+// WB_Getpdflist -> get list from WP post table in database
+class WB_Getpdflist
 {
 
 	public static $pdfs = array();
@@ -56,8 +56,8 @@ class WPGetpdflist
 	
 }
 
-//WPlistpdfs-> adds shortcode to list files in a WP HTML page or post
-class WPHTMLlistpdfs 
+//WB_listpdfs-> adds shortcode to list files in a WP HTML page or post
+class WB_HTMLlistpdfs 
 {
 
     public function __construct()
@@ -68,7 +68,7 @@ class WPHTMLlistpdfs
 	public function shortcode_listpdfs_func()
 	{
 		
-		$pdflist = new WPGetpdflist();
+		$pdflist = new WB_Getpdflist();
 		
 		foreach ( $pdflist->returnpdflist() as $pdf) {
 			echo '<p><a href="' . $pdf[0] . '" target="blank" itemprop="url" alt="' . $pdf[1] . '" >' . $pdf[1] . '</a></p>';	
@@ -76,12 +76,12 @@ class WPHTMLlistpdfs
 	
 	}
 }
-$WPHTMLlistpdfs = new WPHTMLlistpdfs();
+$WB_HTMLlistpdfs = new WB_HTMLlistpdfs();
 
 
 
 //WPXMLlistpdf-> list applications as an XML page
-class WPXMLlistpdf
+class WB_XMLlistpdf
 {
 
     public function __construct()
@@ -102,7 +102,7 @@ class WPXMLlistpdf
 	  echo '<!-- generator="' . home_url( '/' ) . '" -->' . "\n";
 	  $xml  = '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">' . "\n";
 	  
-	  $pdflist = new WPGetpdflist();
+	  $pdflist = new WB_Getpdflist();
 		
 	 foreach ( $pdflist->returnpdflist() as $pdf) {
 
@@ -125,7 +125,7 @@ class WPXMLlistpdf
 	}
 }
  
-$WPXMLlistpdf = new WPXMLlistpdf();
+$WB_XMLlistpdf = new WB_XMLlistpdf();
 
 
 
