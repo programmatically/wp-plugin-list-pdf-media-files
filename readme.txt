@@ -1,3 +1,13 @@
+/*
+Plugin Name: PDF List
+Plugin URI: https://github.com/programmatically/wp-plugin-list-pdf-media-files
+Description: List all PDF Files in your media library on a page and post in addition you can also generate a PDF XML sitemap. Use [pdflist] short code to link all PDF in your media library into a page or post or navigate to http://www.mywpinstall.com/pdf-sitemap.xml for the PDF XML sitemap.
+Version: Version No 1.00
+Author: wibblebuilder
+Author URI: http://themes.technology
+License: GPL v3
+*/
+
 This plugin is design to run as a WordPress Plugin
 
 List all PDF Files in your media library on a page and post also generates a PDF XML sitemap.
